@@ -11,12 +11,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Application\Application.csproj" />
     <ProjectReference Include="..\Client\AzureBlobTestTask.Client.csproj" />
-    <ProjectReference Include="..\Shared\AzureBlobTestTask.Shared.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="Controllers\" />
   </ItemGroup>
 
 
