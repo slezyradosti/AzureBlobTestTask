@@ -31,7 +31,7 @@ namespace FunctionApp
             var email = properties?.Metadata["email"] ?? "";
             var fileLink = properties?.Metadata["fileLink"] ?? "";
 
-            await Task.Delay(5000);
+            await Task.Delay(4000);
             var result = await _emailService.SendAsync(email, fileLink);
 
             return result;
