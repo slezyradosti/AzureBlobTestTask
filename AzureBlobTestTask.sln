@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34607.119
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureBlobTestTask.Server", "AzureBlobTestTask\Server\AzureBlobTestTask.Server.csproj", "{5E6ABDC1-7175-4174-9E0F-746FE11CF44B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobTestTask.Server", "AzureBlobTestTask\Server\AzureBlobTestTask.Server.csproj", "{5E6ABDC1-7175-4174-9E0F-746FE11CF44B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AzureBlobTestTask.Client", "AzureBlobTestTask\Client\AzureBlobTestTask.Client.csproj", "{609B9D06-77E9-4BE1-86CA-0185BC3FFC05}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AzureBlobTestTask.Client", "AzureBlobTestTask\Client\AzureBlobTestTask.Client.csproj", "{609B9D06-77E9-4BE1-86CA-0185BC3FFC05}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Application", "Application\Application.csproj", "{EF6547D8-57EB-41DF-9542-0143F310F926}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "Application\Application.csproj", "{EF6547D8-57EB-41DF-9542-0143F310F926}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{6CC5355E-13EA-4701-A379-8A07275162B9}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FunctionApp", "FunctionApp\FunctionApp.csproj", "{6CC5355E-13EA-4701-A379-8A07275162B9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject", "TestProject\TestProject.csproj", "{BD1E0259-6F88-45C4-82BF-2774513E8652}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{6CC5355E-13EA-4701-A379-8A07275162B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6CC5355E-13EA-4701-A379-8A07275162B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6CC5355E-13EA-4701-A379-8A07275162B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BD1E0259-6F88-45C4-82BF-2774513E8652}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BD1E0259-6F88-45C4-82BF-2774513E8652}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BD1E0259-6F88-45C4-82BF-2774513E8652}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BD1E0259-6F88-45C4-82BF-2774513E8652}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
