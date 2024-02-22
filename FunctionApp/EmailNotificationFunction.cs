@@ -1,14 +1,18 @@
 using Application.Core;
 using Application.Email;
+using Application.Email.Notification;
 using FunctionApp.Data;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Options;
+using Azure.Storage.Blobs;
+using Azure.Storage.Blobs.Models;
 
 namespace FunctionApp
 {
     public class EmailNotificationFunction
     {
         private readonly EmailService _emailService;
+        private EmailNotificationHandler _emailNotificationHandler;
 
         public EmailNotificationFunction(IOptions<SmtpData> options)
         {
@@ -23,11 +27,13 @@ namespace FunctionApp
         }
 
         [Function(nameof(EmailNotificationFunction))]
-        public async Task<bool> Run([BlobTrigger("tesktask/{name}", Connection = "AzureWebJobsStorage")] Stream stream, string name,
-            IDictionary<string, string> metadata)
+        public async Task<bool> Run(
+            [BlobTrigger("tesktask/{name}", Connection = "AzureWebJobsStorage")] Azure.Storage.Blobs.BlobClient blob)
         {
-            var email = metadata["email"];
-            var fileLink = metadata["fileLink"];
+            BlobProperties properties = await blob.GetPropertiesAsync();
+
+            var email = properties?.Metadata["email"] ?? "";
+            var fileLink = properties?.Metadata["fileLink"] ?? "";
 
             await Task.Delay(5000);
             var result = await _emailService.SendAsync(email, fileLink);
