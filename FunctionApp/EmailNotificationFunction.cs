@@ -1,10 +1,8 @@
 using Application.Core;
 using Application.Email;
-using Application.Email.Notification;
 using FunctionApp.Data;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Options;
-using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 
 namespace FunctionApp
@@ -12,7 +10,6 @@ namespace FunctionApp
     public class EmailNotificationFunction
     {
         private readonly EmailService _emailService;
-        private EmailNotificationHandler _emailNotificationHandler;
 
         public EmailNotificationFunction(IOptions<SmtpData> options)
         {
