@@ -24,10 +24,10 @@ namespace FunctionApp
 
         [Function(nameof(EmailNotificationFunction))]
         public async Task<bool> Run([BlobTrigger("tesktask/{name}", Connection = "AzureWebJobsStorage")] Stream stream, string name,
-            IDictionary<string, string> metaData)
+            IDictionary<string, string> metadata)
         {
-            var email = metaData["email"];
-            var fileLink = metaData["fileLink"];
+            var email = metadata["email"];
+            var fileLink = metadata["fileLink"];
 
             await Task.Delay(5000);
             var result = await _emailService.SendAsync(email, fileLink);
