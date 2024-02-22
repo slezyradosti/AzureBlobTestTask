@@ -4,6 +4,6 @@ namespace FunctionApp.Email
 {
     public interface IEmailService
     {
-        public Task<string> SendAsync(string recipientEmail, string fileLink);
+        public Task<bool> SendAsync(string recipientEmail, string fileLink);
     }
 }
