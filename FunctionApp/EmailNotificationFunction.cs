@@ -1,9 +1,8 @@
-using Application.Core;
-using Application.Email;
 using FunctionApp.Data;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Options;
 using Azure.Storage.Blobs.Models;
+using FunctionApp.Email;
 
 namespace FunctionApp
 {
@@ -13,7 +12,7 @@ namespace FunctionApp
 
         public EmailNotificationFunction(IOptions<SmtpData> options)
         {
-            SmtpSecutiry smtpSecutiry = new SmtpSecutiry()
+            SmtpData smtpSecutiry = new SmtpData()
             {
                 SMTPServer = options.Value.SMTPServer,
                 Port = options.Value.Port,
@@ -35,7 +34,7 @@ namespace FunctionApp
             await Task.Delay(5000);
             var result = await _emailService.SendAsync(email, fileLink);
 
-            return result.IsSuccess;
+            return result;
         }
     }
 }
