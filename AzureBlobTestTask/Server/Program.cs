@@ -14,6 +14,16 @@ builder.Services.Configure<SmtpSecutiry>(builder.Configuration.GetSection("SmtpG
 builder.Services.AddScoped<IBlobService, BlobService>();
 builder.Services.AddScoped<IEmailService, EmailService>();
 
+builder.Services.AddCors(options =>
+{
+    options.AddDefaultPolicy(cfg =>
+    {
+        cfg.AllowAnyOrigin();
+        cfg.AllowAnyHeader();
+        cfg.AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -35,6 +45,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.UseCors();
 
 app.MapRazorPages();
 app.MapControllers();
