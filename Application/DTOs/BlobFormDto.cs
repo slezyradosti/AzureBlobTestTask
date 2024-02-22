@@ -4,7 +4,7 @@ namespace Application.DTOs
 {
     public class BlobFormDto
     {
-        public required string Email { get; set; }
-        public required IFormFile File { get; set; }
+        public string Email { get; set; }
+        public IFormFile File { get; set; }
     }
 }

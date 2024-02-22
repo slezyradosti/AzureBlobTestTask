@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using FileExtensionsAttribute = AzureBlobTestTask.Server.Extensions.FileExtensionsAttribute;
 
 namespace AzureBlobTestTask.Server.Models
 {
