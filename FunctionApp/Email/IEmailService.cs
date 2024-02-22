@@ -1,6 +1,4 @@
-﻿using Application.Core;
-
-namespace FunctionApp.Email
+﻿namespace FunctionApp.Email
 {
     public interface IEmailService
     {
