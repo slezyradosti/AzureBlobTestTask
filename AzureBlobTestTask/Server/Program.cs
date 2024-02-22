@@ -1,4 +1,6 @@
-using Microsoft.AspNetCore.ResponseCompression;
+using Application.BlobService;
+using Application.Core;
+using Application.Email;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -6,6 +8,11 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+
+builder.Services.Configure<BlobSecurity>(builder.Configuration.GetSection("AzureBlob"));
+builder.Services.Configure<SmtpSecutiry>(builder.Configuration.GetSection("SmtpGmailSecurity"));
+builder.Services.AddScoped<IBlobService, BlobService>();
+builder.Services.AddScoped<IEmailService, EmailService>();
 
 var app = builder.Build();
 
