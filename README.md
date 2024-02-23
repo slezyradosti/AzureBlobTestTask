@@ -22,7 +22,7 @@
 
 
 - Email Message
-![]()
+![](https://github.com/slezyradosti/AzureBlobTestTask/blob/master/project_screens/project_emailNotif.png)
 
 
 - Swagger
