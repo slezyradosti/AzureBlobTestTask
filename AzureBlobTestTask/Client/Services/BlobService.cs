@@ -32,7 +32,7 @@ namespace AzureBlobTestTask.Client.Services
                 content.Add(streamContent);
 
                 //var response = await _httpClient.PostAsync(ApiData.ApiDevHttpsLink + "Blob", content);
-                var response = await _httpClient.PostAsync("/api/Blob", content);
+                var response = await _httpClient.PostAsync(_httpClient.BaseAddress+"/Blob", content);
 
                 if (response == null) return null;
 
