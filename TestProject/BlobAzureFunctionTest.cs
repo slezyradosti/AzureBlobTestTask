@@ -4,6 +4,7 @@ using FunctionApp.Data;
 using FunctionApp;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Options;
+using Azure.Storage.Blobs;
 
 namespace TestProject
 {
@@ -44,10 +45,13 @@ namespace TestProject
             meta.Add("email", email);
             meta.Add("fileLink", fileLink);
 
+            var blobClient = A.Fake<BlobClient>();
+            blobClient.SetMetadata(meta);
+
             bool funcResult = true;
             try
             {
-                funcResult = await emailNotificationFunction.Run(stream, name, meta);
+                funcResult = await emailNotificationFunction.Run(blobClient);
             }
             catch (Exception ex)
             {
@@ -73,10 +77,13 @@ namespace TestProject
                 { "fileLink", fileLink}
             };
 
+            var blobClient = A.Fake<BlobClient>();
+            blobClient.SetMetadata(meta);
+
             bool funcResult = true;
             try
             {
-                funcResult = await emailNotificationFunction.Run(stream, name, meta);
+                funcResult = await emailNotificationFunction.Run(blobClient);
             }
             catch (Exception ex)
             {
