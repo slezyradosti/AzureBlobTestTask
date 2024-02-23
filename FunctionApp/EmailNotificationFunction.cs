@@ -28,8 +28,10 @@ namespace FunctionApp
         {
             BlobProperties properties = await blob.GetPropertiesAsync();
 
-            var email = properties?.Metadata["email"] ?? "";
-            var fileLink = properties?.Metadata["fileLink"] ?? "";
+            string email = "";
+            string fileLink = "";
+            properties?.Metadata.TryGetValue("email", out email);
+            properties?.Metadata.TryGetValue("fileLink", out fileLink);
 
             await Task.Delay(4000);
             var result = await _emailService.SendAsync(email, fileLink);
